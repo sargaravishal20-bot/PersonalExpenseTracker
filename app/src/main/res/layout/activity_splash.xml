@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootSplash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nova_mint_bg"
+    tools:context=".activity_splash">
+
+    <!-- ============================================ -->
+    <!-- 1. BIG BACKGROUND WATERMARK TEXT ("Tracker") -->
+    <!-- ============================================ -->
+    <TextView
+        android:id="@+id/tvBackgroundWatermark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="-0.04"
+        android:text="Tracker"
+        android:textColor="#0D1111"
+        android:textSize="84sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/layoutBottomContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ============================================ -->
+    <!-- 2. FLOATING CARD (Centering Overlap)         -->
+    <!-- ============================================ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardFloatingTransaction"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_floating_card"
+        android:elevation="14dp"
+        android:padding="16dp"
+        android:translationY="-20dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutBottomContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvSendingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.08"
+            android:text="SAVINGS TARGET"
+            android:textAllCaps="true"
+            android:textColor="#3D6E63"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Recipient Row -->
+        <LinearLayout
+            android:id="@+id/layoutRecipient"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSendingLabel">
+
+            <!-- Card Avatar (ID Added: tvCardAvatar) -->
+            <TextView
+                android:id="@+id/tvCardAvatar"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_circle_icon"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center"
+                android:text="😎"
+                android:textSize="15sp" />
+
+            <!-- Card Name (ID Added: tvCardName) -->
+            <TextView
+                android:id="@+id/tvCardName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="My Wallet"
+                android:textColor="@color/nova_text_black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Arrow Icon Badge -->
+            <TextView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:background="@drawable/bg_circle_icon"
+                android:backgroundTint="@color/nova_dark_pill"
+                android:gravity="center"
+                android:text="↗"
+                android:textColor="@color/nova_text_white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Big Amount -->
+        <TextView
+            android:id="@+id/tvFloatingAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="₹2,085.00"
+            android:textColor="@color/nova_text_black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutRecipient" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- ============================================ -->
+    <!-- 3. FLOATING CURRENCY COINS BADGE             -->
+    <!-- ============================================ -->
+    <LinearLayout
+        android:id="@+id/layoutCurrencyBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_pill_button"
+        android:backgroundTint="#1D2128"
+        android:elevation="18dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintStart_toStartOf="@id/cardFloatingTransaction"
+        app:layout_constraintTop_toBottomOf="@id/cardFloatingTransaction"
+        android:translationX="-16dp"
+        android:translationY="-12dp">
+
+        <TextView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/bg_circle_icon"
+            android:backgroundTint="#F59E0B"
+            android:gravity="center"
+            android:text="₹"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="⇄"
+            android:textColor="#8E96A0"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_circle_icon"
+            android:backgroundTint="#10B981"
+            android:gravity="center"
+            android:text="$"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- ============================================ -->
+    <!-- 4. BOTTOM CONTENT (Tagline & Get Started)    -->
+    <!-- ============================================ -->
+    <LinearLayout
+        android:id="@+id/layoutBottomContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="44dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tvTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:letterSpacing="-0.02"
+            android:text="Your money, in perspective."
+            android:textColor="@color/nova_text_black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Get Started Black Pill Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGetStarted"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:text="Get started"
+            android:textAllCaps="false"
+            android:textColor="@color/nova_text_white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/nova_dark_pill"
+            app:cornerRadius="28dp"
+            app:elevation="6dp"
+            app:rippleColor="#33FFFFFF" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

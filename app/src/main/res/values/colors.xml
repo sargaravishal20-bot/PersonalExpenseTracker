@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Nova Pastel Mint & Dark Palette -->
+    <color name="nova_mint_bg">#B4F2E1</color>
+    <color name="nova_mint_card">#D5F8EF</color>
+    <color name="nova_mint_text_muted">#4A7D71</color>
+
+    <!-- Dark Sheet & Surfaces -->
+    <color name="nova_dark_sheet">#101215</color>
+    <color name="nova_dark_card">#1A1D23</color>
+    <color name="nova_dark_pill">#111317</color>
+    <color name="nova_dock_bg">#1F232B</color>
+
+    <!-- General Text & Surfaces -->
+    <color name="nova_text_black">#0D1111</color>
+    <color name="nova_text_white">#FFFFFF</color>
+    <color name="nova_text_gray">#8E96A0</color>
+    <color name="nova_card_white">#FFFFFF</color>
+
+    <!-- Status / Transaction Colors -->
+    <color name="nova_green">#10B981</color>
+    <color name="nova_red">#FF5252</color>
+
+    <!-- ============================================== -->
+    <!-- Missing Legacy Colors (Jisse error aa raha tha) -->
+    <!-- ============================================== -->
+    <color name="gradient_start">#6366F1</color>
+    <color name="gradient_end">#4338CA</color>
+    <color name="expense_bg">#FEE2E2</color>
+    <color name="income_bg">#E8FAF4</color>
+
+    <!-- Other Compatibility Colors -->
+    <color name="primary">#111317</color>
+    <color name="primary_dark">#000000</color>
+    <color name="primary_light">#E0F7F1</color>
+    <color name="bg_main">#B4F2E1</color>
+    <color name="surface_white">#FFFFFF</color>
+    <color name="text_primary">#0D1111</color>
+    <color name="text_secondary">#4A7D71</color>
+    <color name="text_muted">#8E96A0</color>
+    <color name="income_green">#10B981</color>
+    <color name="expense_red">#FF5252</color>
+</resources>

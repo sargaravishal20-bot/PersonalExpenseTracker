@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootProfile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nova_mint_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="28dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="36dp">
+
+        <!-- Header with Back Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/btnBack"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_nova_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="‹"
+                android:textColor="@color/nova_text_black"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.06"
+                    android:text="PERSONALIZATION"
+                    android:textAllCaps="true"
+                    android:textColor="@color/nova_mint_text_muted"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="My Profile"
+                    android:textColor="@color/nova_text_black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Current Selected Avatar Circle Preview -->
+        <FrameLayout
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_nova_card"
+            android:elevation="6dp">
+
+            <TextView
+                android:id="@+id/tvAvatarPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="😎"
+                android:textSize="42sp" />
+        </FrameLayout>
+
+        <!-- Quick Select Emoji Avatars -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:letterSpacing="0.06"
+            android:text="CHOOSE AVATAR"
+            android:textAllCaps="true"
+            android:textColor="@color/nova_mint_text_muted"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/layoutEmojiChips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/emoji1" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_nova_card" android:gravity="center" android:text="😎" android:textSize="22sp" />
+                <TextView android:id="@+id/emoji2" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_nova_card" android:gravity="center" android:text="🧑‍💻" android:textSize="22sp" />
+                <TextView android:id="@+id/emoji3" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_nova_card" android:gravity="center" android:text="👤" android:textSize="22sp" />
+                <TextView android:id="@+id/emoji4" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_nova_card" android:gravity="center" android:text="💼" android:textSize="22sp" />
+                <TextView android:id="@+id/emoji5" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_nova_card" android:gravity="center" android:text="🚀" android:textSize="22sp" />
+                <TextView android:id="@+id/emoji6" android:layout_width="48dp" android:layout_height="48dp" android:background="@drawable/bg_nova_card" android:gravity="center" android:text="💰" android:textSize="22sp" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <!-- Custom Emoji Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Or type custom emoji"
+            app:boxBackgroundColor="@color/nova_card_white"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="1.5dp"
+            app:boxStrokeColor="@color/nova_dark_pill">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCustomEmoji"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:maxLength="4"
+                android:textColor="@color/nova_text_black"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Name Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:letterSpacing="0.06"
+            android:text="NAME (CARD PE DIKHEGA)"
+            android:textAllCaps="true"
+            android:textColor="@color/nova_mint_text_muted"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Enter your name"
+            app:boxBackgroundColor="@color/nova_card_white"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="1.5dp"
+            app:boxStrokeColor="@color/nova_dark_pill">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etProfileName"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:inputType="textPersonName"
+                android:textColor="@color/nova_text_black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Amount Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:letterSpacing="0.06"
+            android:text="CARD DISPLAY AMOUNT"
+            android:textAllCaps="true"
+            android:textColor="@color/nova_mint_text_muted"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Enter card amount"
+            app:boxBackgroundColor="@color/nova_card_white"
+            app:boxBackgroundMode="filled"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="1.5dp"
+            app:boxStrokeColor="@color/nova_dark_pill"
+            app:prefixText="₹ "
+            app:prefixTextColor="@color/nova_text_black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etProfileAmount"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:inputType="numberDecimal"
+                android:textColor="@color/nova_text_black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Save Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:text="Save Profile"
+            android:textAllCaps="false"
+            android:textColor="@color/nova_text_white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/nova_dark_pill"
+            app:cornerRadius="28dp"
+            app:elevation="4dp" />
+
+    </LinearLayout>
+
+</ScrollView>

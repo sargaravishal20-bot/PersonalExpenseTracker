@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nova_mint_bg"
+    tools:context=".MainActivity">
+
+    <!-- ============================================ -->
+    <!-- 1. TOP HEADER: TOTAL BALANCE & AVATAR        -->
+    <!-- ============================================ -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvBalanceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.08"
+                android:text="TOTAL BALANCE"
+                android:textAllCaps="true"
+                android:textColor="@color/nova_mint_text_muted"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹0.00"
+                    android:textColor="@color/nova_text_black"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
+                <!-- Hide/Show Eye Icon -->
+                <ImageView
+                    android:id="@+id/ivToggleBalance"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="8dp"
+                    android:alpha="0.75"
+                    android:contentDescription="Toggle balance"
+                    android:src="@android:drawable/ic_menu_view"
+                    app:tint="@color/nova_text_black" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- User Profile Avatar -->
+        <FrameLayout
+            android:id="@+id/layoutAvatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp">
+
+            <TextView
+                android:id="@+id/tvAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_nova_card"
+                android:gravity="center"
+                android:text="👤"
+                android:textSize="22sp" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- ============================================ -->
+    <!-- 2. STAT CARDS (Saving / Bills / Activity)    -->
+    <!-- ============================================ -->
+    <HorizontalScrollView
+        android:id="@+id/scrollCards"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Card 1: Income (SAVING) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardIncome"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                app:cardBackgroundColor="@color/nova_card_white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_circle_icon"
+                        android:backgroundTint="#EDFAF5"
+                        android:gravity="center"
+                        android:text="💰"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:letterSpacing="0.05"
+                        android:text="SAVING"
+                        android:textAllCaps="true"
+                        android:textColor="@color/nova_mint_text_muted"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvIncome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="₹0.00"
+                        android:textColor="@color/nova_text_black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 2: Expense (BILLS) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardExpense"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                app:cardBackgroundColor="@color/nova_card_white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_circle_icon"
+                        android:backgroundTint="#FDF2F2"
+                        android:gravity="center"
+                        android:text="📄"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:letterSpacing="0.05"
+                        android:text="BILLS"
+                        android:textAllCaps="true"
+                        android:textColor="@color/nova_mint_text_muted"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvExpense"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="₹0.00"
+                        android:textColor="@color/nova_text_black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 3: Total Transactions Activity -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardActivity"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/nova_card_white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_circle_icon"
+                        android:backgroundTint="#FFF8E7"
+                        android:gravity="center"
+                        android:text="⚡"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:letterSpacing="0.05"
+                        android:text="ENTRIES"
+                        android:textAllCaps="true"
+                        android:textColor="@color/nova_mint_text_muted"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvTransactionsCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="0 Items"
+                        android:textColor="@color/nova_text_black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <!-- ============================================ -->
+    <!-- 3. ACTION PILLS: SEND (Expense) & REQUEST    -->
+    <!-- ============================================ -->
+    <LinearLayout
+        android:id="@+id/layoutQuickActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollCards">
+
+        <!-- Send Pill (Adds Expense) -->
+        <LinearLayout
+            android:id="@+id/btnSend"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_pill_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Expense "
+                android:textColor="@color/nova_text_white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_circle_icon"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center"
+                android:text="↗"
+                android:textColor="@color/nova_text_black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Request Pill (Adds Income) -->
+        <LinearLayout
+            android:id="@+id/btnRequest"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_pill_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Income"
+                android:textColor="@color/nova_text_white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_circle_icon"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center"
+                android:text="↙"
+                android:textColor="@color/nova_text_black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ============================================ -->
+    <!-- 4. DARK BOTTOM SHEET: RECENT ACTIVITY        -->
+    <!-- ============================================ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomSheetContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/bg_dark_sheet"
+        android:paddingTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutQuickActions">
+
+        <!-- Sheet Header -->
+        <LinearLayout
+            android:id="@+id/recentHeaderLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvRecent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:letterSpacing="0.08"
+                android:text="RECENT ACTIVITY"
+                android:textAllCaps="true"
+                android:textColor="@color/nova_text_gray"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSeeAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="See all"
+                android:textColor="@color/nova_mint_bg"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- RecyclerView (Ab full bottom space use karega) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerTransactions"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recentHeaderLayout" />
+
+        <!-- Empty State inside Dark Sheet -->
+        <LinearLayout
+            android:id="@+id/emptyState"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="28dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/recyclerTransactions"
+            app:layout_constraintEnd_toEndOf="@id/recyclerTransactions"
+            app:layout_constraintStart_toStartOf="@id/recyclerTransactions"
+            app:layout_constraintTop_toTopOf="@id/recyclerTransactions">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_circle_icon"
+                android:backgroundTint="@color/nova_dark_card"
+                android:gravity="center"
+                android:text="💳"
+                android:textSize="26sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="No transactions yet"
+                android:textColor="@color/nova_text_white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="Use Send or Request above to log your first transaction."
+                android:textColor="@color/nova_text_gray"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Hidden compatibility FAB so old references never crash -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Add transaction"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
